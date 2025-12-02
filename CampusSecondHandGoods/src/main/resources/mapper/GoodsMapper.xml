@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.campussecondhandgoods.mapper.GoodsMapper">
+
+    <!--查分类下的商品-->
+    <select id="listByCategory" resultType="Goods">
+        SELECT g.*, u.username AS sellerName, u.avatarUrl AS sellerAvatar
+        FROM goods g
+        LEFT JOIN [user] u ON g.userId = u.id
+        WHERE g.category=#{category}
+    </select>
+
+    <!--商品详情-->
+    <select id="detail" resultType="Goods">
+        SELECT g.*, u.contact, u.username AS sellerName, u.avatarUrl AS sellerAvatar
+        FROM goods g
+        LEFT JOIN [user] u ON g.userId = u.id
+        WHERE g.id=#{id}
+    </select>
+
+    <!--发布商品-->
+    <insert id="add" parameterType="Goods">
+        INSERT INTO goods (title, price, description, imgUrl, category, userId)
+        VALUES (#{title}, #{price}, #{description}, #{imgUrl}, #{category}, #{userId})
+    </insert>
+
+    <!--查“我的发布”-->
+    <select id="myGoods" resultType="Goods">
+        SELECT * FROM goods WHERE userId = #{userId}
+    </select>
+
+    <!--查所有商品-->
+    <select id="listAll" resultType="Goods">
+        SELECT g.*, u.username AS sellerName, u.avatarUrl AS sellerAvatar
+        FROM goods g
+        LEFT JOIN [user] u ON g.userId = u.id
+    </select>
+
+    <!--搜索商品-->
+    <select id="search" resultType="Goods">
+        SELECT g.*, u.username AS sellerName, u.avatarUrl AS sellerAvatar
+        FROM goods g
+        LEFT JOIN [user] u ON g.userId = u.id
+        WHERE g.title LIKE '%' + #{keyword} + '%'
+        OR g.description LIKE '%' + #{keyword} + '%'
+    </select>
+
+    <!--删除商品-->
+    <delete id="delete" parameterType="Map">
+        DELETE FROM goods WHERE id = #{id} AND userId=#{userId}
+    </delete>
+
+    <!--更新商品-->
+    <update id="update" parameterType="Goods">
+        UPDATE goods
+        SET title = #{title},
+            price = #{price},
+            description = #{description},
+            imgUrl = #{imgUrl},
+            category = #{category}
+        WHERE id = #{id} AND userId = #{userId}
+    </update>
+
+    <!--更新状态-->
+    <update id="updateStatus">
+        UPDATE goods SET status = #{status} WHERE id = #{id} AND userId = #{userId}
+    </update>
+
+    <!--增加浏览量-->
+    <update id="incrementViewCount">
+        UPDATE goods SET view_count = view_count + 1 WHERE id = #{id}
+    </update>
+
+</mapper>
