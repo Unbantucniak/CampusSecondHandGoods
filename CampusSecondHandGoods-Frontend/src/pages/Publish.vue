@@ -454,7 +454,7 @@ const handleUrlTransfer = async () => {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Fade Transition */
+/* 渐隐过渡 */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;

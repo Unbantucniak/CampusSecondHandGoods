@@ -133,7 +133,7 @@ const loadUserInfo = async () => {
       localStorage.setItem('avatarUrl', form.value.avatarUrl);
     }
   } catch (error) {
-    // Silent fail for offline
+    // 离线场景静默忽略
   }
 };
 

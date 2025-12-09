@@ -1,4 +1,4 @@
-// src/api/user.js
+// 用户接口封装（src/api/user.js）
 import request from './index';
 
 // 登录接口（向后端发送用户名和密码）

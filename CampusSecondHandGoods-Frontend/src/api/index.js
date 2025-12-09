@@ -1,4 +1,4 @@
-// src/api/index.js
+// 请求封装入口（src/api/index.js）
 import axios from 'axios';
 
 // 创建axios实例，配置基础路径（后端接口地址）

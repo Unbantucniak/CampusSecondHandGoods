@@ -1,4 +1,4 @@
-// src/main.js
+// 应用入口（src/main.js）
 import { createApp } from 'vue';
 import App from './App.vue';
 import ElementPlus from 'element-plus'; 

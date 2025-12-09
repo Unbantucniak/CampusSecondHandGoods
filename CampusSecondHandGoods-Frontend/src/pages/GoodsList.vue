@@ -1,6 +1,6 @@
 <template>
   <div class="goods-page">
-    <!-- Hero Section -->
+    <!-- 头图区域 -->
     <div class="hero-section">
       <div class="hero-bg-animation">
         <div class="blob blob-1"></div>
@@ -31,9 +31,9 @@
       <div class="hero-shape"></div>
     </div>
 
-    <!-- Main Content -->
+    <!-- 主体内容 -->
     <div class="main-container">
-      <!-- Toolbar -->
+      <!-- 工具栏 -->
       <div class="toolbar">
         <div class="category-list">
           <div 
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <!-- Goods Grid -->
+      <!-- 商品网格 -->
       <div class="goods-grid" v-loading="loading">
         <template v-if="displayedGoods.length > 0">
           <div 
@@ -118,7 +118,7 @@
         </div>
       </div>
 
-      <!-- Pagination -->
+      <!-- 分页 -->
       <div class="pagination-wrapper" v-if="totalGoods > 0">
         <el-pagination
           v-model:current-page="currentPage"
@@ -145,7 +145,7 @@ import { GOODS_CATEGORIES } from '../constants/categories';
 const router = useRouter();
 const assetBaseURL = import.meta.env.VITE_FILE_BASE_URL || 'http://localhost:8080';
 
-// State
+// 状态管理
 const loading = ref(false);
 const goodsList = ref([]);
 const searchKeyword = ref('');
@@ -154,7 +154,7 @@ const sortOrder = ref('default');
 const currentPage = ref(1);
 const pageSize = ref(12);
 
-// Options
+// 选项配置
 const categoryOptions = GOODS_CATEGORIES.map(c => ({ value: String(c.value), label: c.label }));
 const SORT_OPTIONS = [
   { value: 'default', label: '综合排序' },
@@ -176,7 +176,7 @@ const displayedGoods = computed(() => {
   return goodsList.value.slice(start, end);
 });
 
-// Methods
+// 方法集合
 const loadData = async () => {
   loading.value = true;
   try {
@@ -205,14 +205,14 @@ const loadData = async () => {
 };
 
 const handleSearch = () => {
-  activeCategory.value = 'all'; // Reset category on search
+  activeCategory.value = 'all'; // 搜索时重置分类
   currentPage.value = 1;
   loadData();
 };
 
 const handleCategoryChange = (val) => {
   activeCategory.value = val;
-  searchKeyword.value = ''; // Clear search on category change
+  searchKeyword.value = ''; // 切换分类时清空搜索
   currentPage.value = 1;
   loadData();
 };
@@ -270,7 +270,7 @@ onMounted(() => {
   background-color: #f8fafc;
 }
 
-/* Hero Section */
+/* 头图区域 */
 .hero-section {
   position: relative;
   background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
@@ -411,7 +411,7 @@ onMounted(() => {
   color: #4338ca;
 }
 
-/* Main Content */
+/* 主体内容 */
 .main-container {
   max-width: 1280px;
   margin: -60px auto 0;
@@ -420,7 +420,7 @@ onMounted(() => {
   z-index: 3;
 }
 
-/* Toolbar */
+/* 工具栏 */
 .toolbar {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
@@ -514,7 +514,7 @@ onMounted(() => {
   box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
 }
 
-/* Grid */
+/* 网格布局 */
 .goods-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -535,7 +535,7 @@ onMounted(() => {
   animation: fadeInUp 0.6s ease-out backwards;
 }
 
-/* Staggered animation for first few items */
+/* 前几项设置阶梯动画 */
 .goods-card:nth-child(1) { animation-delay: 0.1s; }
 .goods-card:nth-child(2) { animation-delay: 0.15s; }
 .goods-card:nth-child(3) { animation-delay: 0.2s; }
@@ -564,7 +564,7 @@ onMounted(() => {
 
 .card-image-wrapper {
   position: relative;
-  padding-top: 80%; /* Slightly taller */
+  padding-top: 80%; /* 略高比例 */
   overflow: hidden;
   background: #f1f5f9;
 }

@@ -1,4 +1,4 @@
-// src/router/index.js
+// 路由入口（src/router/index.js）
 import { createRouter, createWebHistory } from 'vue-router';
 
 // 导入页面组件（“懒加载”方式，访问时才加载，提升速度）

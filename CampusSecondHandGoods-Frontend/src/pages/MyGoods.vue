@@ -126,7 +126,7 @@ const goToDetail = (id) => {
 };
 
 const handleStatusChange = async (item) => {
-  const newStatus = item.status === 1 ? 0 : 1; // Toggle between 0 (On Sale) and 1 (Sold)
+  const newStatus = item.status === 1 ? 0 : 1; // 在售(0)/已售(1)之间切换
   const actionText = newStatus === 1 ? '标记为已售出' : '重新上架';
   
   try {
@@ -277,6 +277,8 @@ onMounted(loadMyGoods);
   transition: all 0.3s ease;
   border: 1px solid #f1f5f9;
   animation: fadeInUp 0.6s ease-out backwards;
+  position: relative;
+  isolation: isolate; /* 独立层叠上下文，防止叠到其他卡片 */
 }
 
 .goods-card:hover {
@@ -384,7 +386,7 @@ onMounted(loadMyGoods);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 2;
   pointer-events: none;
 }
 

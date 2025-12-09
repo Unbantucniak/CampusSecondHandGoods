@@ -2,7 +2,7 @@
   <div class="detail-wrapper">
     <div class="detail-content">
       <div class="glass-container" v-if="goodsDetail.id">
-        <!-- Left: Image Gallery -->
+        <!-- 左侧：图片展示 -->
         <div class="image-section">
           <div class="image-container">
             <el-image 
@@ -20,7 +20,7 @@
           </div>
         </div>
 
-        <!-- Right: Info -->
+        <!-- 右侧：商品信息 -->
         <div class="info-section">
           <div class="header-info">
             <h1 class="goods-title">{{ goodsDetail.title }}</h1>
@@ -67,7 +67,7 @@
         </div>
       </div>
       
-      <!-- Loading State -->
+      <!-- 加载占位 -->
       <div v-else class="loading-state">
         <el-skeleton animated>
           <template #template>
@@ -184,7 +184,7 @@ onMounted(async () => {
 .detail-wrapper {
   min-height: 100vh;
   background: #f8fafc;
-  padding-top: 80px; /* Navbar height */
+  padding-top: 80px; /* 预留导航栏高度 */
 }
 
 .detail-content {
