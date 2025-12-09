@@ -99,7 +99,7 @@ CREATE TABLE goods (
     image_url NVARCHAR(500),
     user_id INT NOT NULL,
     status INT DEFAULT 0,           -- 0: 在售, 1: 已售出
-    view_count INT DEFAULT 0,       -- 浏览次数统计
+    viewCount INT DEFAULT 0,       -- 浏览次数统计
     created_at DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
