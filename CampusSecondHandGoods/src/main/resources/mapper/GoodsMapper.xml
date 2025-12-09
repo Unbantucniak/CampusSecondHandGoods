@@ -56,6 +56,7 @@
         SET title = #{title},
             price = #{price},
             description = #{description},
+            
             imgUrl = #{imgUrl},
             category = #{category}
         WHERE id = #{id} AND userId = #{userId}
@@ -68,7 +69,7 @@
 
     <!--增加浏览量-->
     <update id="incrementViewCount">
-        UPDATE goods SET view_count = view_count + 1 WHERE id = #{id}
+        UPDATE goods SET viewCount = viewCount + 1 WHERE id = #{id}
     </update>
 
 </mapper>

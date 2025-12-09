@@ -45,7 +45,6 @@
                 {{ goodsDetail.contact }}
               </p>
             </div>
-            <el-tag type="success" effect="dark" round size="small">卖家在线</el-tag>
           </div>
 
           <div class="description-box">
@@ -63,12 +62,6 @@
               :disabled="goodsDetail.status === 1"
             >
               {{ goodsDetail.status === 1 ? '已售出' : '立即购买' }}
-            </el-button>
-            <el-button size="large" circle class="icon-btn">
-              <el-icon><Star /></el-icon>
-            </el-button>
-            <el-button size="large" circle class="icon-btn">
-              <el-icon><Share /></el-icon>
             </el-button>
           </div>
         </div>
@@ -158,7 +151,7 @@ async function loadSellerContact(sellerId) {
       goodsDetail.value.sellerAvatar = res.data.avatarUrl || '';
     }
   } catch (error) {
-    console.error(error);
+    // 错误已在该页面的其他处理
   }
 }
 
@@ -227,12 +220,11 @@ onMounted(async () => {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
 }
 
-.image-container:hover {
+/* .image-container:hover {
   transform: scale(1.02);
-}
+} */
 
 .main-image {
   width: 100%;

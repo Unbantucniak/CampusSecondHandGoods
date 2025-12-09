@@ -17,7 +17,6 @@ request.interceptors.response.use(
   },
   (error) => {
     // 错误处理（如网络异常）
-    console.error('接口请求失败：', error);
     return Promise.reject(error);
   }
 );

@@ -198,7 +198,6 @@ const loadData = async () => {
       ElMessage.error(res.msg || '获取数据失败');
     }
   } catch (error) {
-    console.error(error);
     ElMessage.error('网络连接失败');
   } finally {
     loading.value = false;
