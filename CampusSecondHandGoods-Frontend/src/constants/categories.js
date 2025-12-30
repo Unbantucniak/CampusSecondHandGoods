@@ -1,4 +1,4 @@
-// 商品分类配置，可根据后端实际分类维护
+// 商品分类配置
 export const GOODS_CATEGORIES = [
   { value: 1, label: '数码电子' },
   { value: 2, label: '图书教材' },

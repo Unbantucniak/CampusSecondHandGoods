@@ -51,7 +51,7 @@ public class GoodsController {
             result.put("msg","发布成功");
         }
         else{
-            result.put("code",400);
+            result.put("code",400);{}
             result.put("msg","发布失败");
         }
         return result;

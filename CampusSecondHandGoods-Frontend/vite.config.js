@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [vue()],
   server: {
     proxy: {
-      '/api': {
+      '/api': {//以api开头的请求都会被代理到target
         target: 'http://localhost:8080',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')

@@ -8,13 +8,13 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import Navbar from './components/Navbar.vue';
+import { computed } from 'vue'; //计算属性
+import { useRoute } from 'vue-router'; 
+import Navbar from './components/Navbar.vue'; //导入导航组件
 
-const route = useRoute();
-const hideNavbarOn = ['/login'];
-const showNavbar = computed(() => !hideNavbarOn.includes(route.path));
+const route = useRoute(); //获取路由对象
+const hideNavbarOn = ['/login']; //隐藏导航
+const showNavbar = computed(() => !hideNavbarOn.includes(route.path)); //如果路径在hideNavbarOn中，则不显示导航
 </script>
 
 <style>
@@ -36,14 +36,13 @@ body {
 }
 
 .app-shell__nav {
-  position: sticky;
+  position: sticky; 
   top: 0;
   z-index: 10;
 }
 
 .app-shell__main {
   flex: 1;
-  /* padding removed to allow full-width hero sections */
   width: 100%;
   max-width: 100%;
 }

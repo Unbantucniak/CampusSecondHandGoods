@@ -41,6 +41,9 @@
                   <el-icon><View /></el-icon>
                 </el-button>
               </div>
+              <div v-if="item.status === 1" class="sold-overlay">
+                <span class="sold-text">已售出</span>
+              </div>
             </div>
             
             <div class="card-body">
@@ -82,10 +85,6 @@
                   </el-button>
                 </div>
               </div>
-            </div>
-            <!-- Sold Overlay -->
-            <div v-if="item.status === 1" class="sold-overlay">
-              <span class="sold-text">已售出</span>
             </div>
           </div>
         </div>

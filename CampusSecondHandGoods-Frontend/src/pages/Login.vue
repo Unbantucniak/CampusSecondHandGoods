@@ -1,13 +1,10 @@
-<!-- src/pages/Login.vue -->
 <template>
   <div class="login-wrapper">
-    <!-- Left Side: Visuals -->
     <div class="login-visual">
       <div class="visual-content">
         <h1 class="brand-title">Campus Market</h1>
         <p class="brand-slogan">让闲置物品流转起来，<br>传递价值与快乐。</p>
       </div>
-      <!-- New Dynamic Background -->
       <div class="aurora-bg">
         <div class="aurora-item"></div>
         <div class="aurora-item"></div>
@@ -15,7 +12,6 @@
       </div>
     </div>
 
-    <!-- Right Side: Form -->
     <div class="login-form-container">
       <div class="form-box">
         <h2 class="form-title">{{ activeTab === 'login' ? '欢迎回来' : '加入我们' }}</h2>
@@ -32,7 +28,6 @@
           >注册</span>
         </div>
 
-        <!-- Login Form -->
         <transition name="fade" mode="out-in">
           <div v-if="activeTab === 'login'" key="login" class="form-content">
             <el-form :model="loginForm" size="large" class="custom-form">
@@ -64,7 +59,6 @@
             </el-form>
           </div>
 
-          <!-- Register Form -->
           <div v-else key="register" class="form-content">
             <el-form :model="registerForm" size="large" class="custom-form">
               <el-form-item>
@@ -154,7 +148,8 @@ const handleLogin = async () => {
       localStorage.setItem('userId', res.data.id);
       localStorage.setItem('username', res.data.username || payload.username);
       localStorage.setItem('contact', res.data.contact || '');
-      localStorage.setItem('avatarUrl', res.data.avatarUrl || '');
+      
+      
       router.push('/list');
     } else {
       ElMessage.error(res?.msg || '登录失败');
@@ -305,7 +300,6 @@ const handleRegister = async () => {
   position: relative;
 }
 
-/* Add a subtle pattern to the form side */
 .login-form-container::before {
   content: '';
   position: absolute;
